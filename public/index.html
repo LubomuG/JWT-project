@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизація JWT</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="auth-view" hidden>
+        <h1>Вхід до акаунта</h1>
+        <nav class="tabs" aria-label="Режим авторизації">
+            <button type="button" id="login-tab" class="tab active" aria-pressed="true">Увійти</button>
+            <button type="button" id="register-tab" class="tab" aria-pressed="false">Реєстрація</button>
+        </nav>
+    
+    <form id="auth-form">
+        <label for="username-input">Логін</label>
+        <input id="username-input" type="text" name="username" placeholder="Введіть логін" autocomplete="username" minlength="3" required>
+        <label for="password-input">Пароль</label>
+        <input id="password-input" type="password" name="password" placeholder="Введіть пароль" autocomplete="current-password" minlength="6" required>
+        <button class="submit-btn" type="submit" id="submit-btn">Увійти</button>
+    </form>
+
+    <p id="message" role="alert" aria-live="polite"></p>
+    
+    </section>
+
+     <section id="user-view" hidden>
+        <h1>Вітаємо, <span id="username"></span>!</h1>
+        <p id="role-label" class="muted"></p>
+        <p id="session-expiry" class="session-note"></p>
+        <div id="admin-panel" class="panel" hidden>
+            <h2>Панель адміністратора</h2>
+            <p id="admin-message"></p>
+        </div>
+        <details class="panel password-panel">
+            <summary>Змінити пароль</summary>
+            <form id="password-form">
+                <label for="old-password">Старий пароль</label>
+                <input id="old-password" type="password" name="oldPassword" autocomplete="current-password" required>
+                <label for="new-password">Новий пароль</label>
+                <input id="new-password" type="password" name="newPassword" autocomplete="new-password" minlength="6" required>
+                <button class="secondary-btn" type="submit">Зберегти новий пароль</button>
+            </form>
+            <p id="password-message" role="alert" aria-live="polite"></p>
+        </details>
+        <button type="button" id="logout-btn">Вийти</button>
+     </section>
+
+     <script src="./main.js" defer></script>
+</body>
+</html>
